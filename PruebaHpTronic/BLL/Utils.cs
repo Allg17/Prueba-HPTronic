@@ -10,5 +10,6 @@ namespace PruebaHpTronic.BLL
     public class Utils
     {
         public static Banco banco { get; set; }
+
     }
 }
