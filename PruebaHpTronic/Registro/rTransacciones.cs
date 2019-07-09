@@ -34,6 +34,10 @@ namespace PruebaHpTronic.Registro
         {
             //Busca en la base de datos al cambiar el index del comboBox
             transacciones = BLL.TransaccionesBLL.GetListBuscar(BancocomboBox.SelectedValue.Toint());
+            if (transacciones.Count == 0)
+            {
+                AgregarNuevo();
+            }
             FillGrid();
         }
 
@@ -57,9 +61,19 @@ namespace PruebaHpTronic.Registro
             if (BancocomboBox.SelectedValue != null)
             {
                 transacciones = BLL.TransaccionesBLL.GetListBuscar(BancocomboBox.SelectedValue.Toint(), DesdedateTimePicker.Value.Date, HastadateTimePicker.Value.Date);
+                if(transacciones.Count == 0)
+                {
+                    AgregarNuevo();
+                }
                 FillGrid();
 
             }
+        }
+
+        private void AgregarNuevo()
+        {
+            transacciones.Add(new Transacciones(0, BancocomboBox.SelectedValue.Toint(), "", DateTime.Now, "", 0));
+            
         }
 
         private void FillGrid()
@@ -106,12 +120,12 @@ namespace PruebaHpTronic.Registro
             //Evento que captura al pulsar una tecla
             if (e.KeyCode == Keys.Enter)
             {
-                transacciones.Add(new Transacciones(0, BancocomboBox.SelectedValue.Toint(), "", DateTime.Now, "", 0));
+                AgregarNuevo();
                 FillGrid();
             }
             if (e.KeyCode == Keys.Delete)
             {
-                if (SelectedRow >= 0 && transacciones.Count > 0)
+                if (SelectedRow >= 0 && transacciones.Count > 0 && transacciones.Count > SelectedRow)
                     transacciones.RemoveAt(SelectedRow);
                 FillGrid();
             }

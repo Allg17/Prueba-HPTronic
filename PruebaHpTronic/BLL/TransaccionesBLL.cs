@@ -39,9 +39,9 @@ namespace PruebaHpTronic.BLL
 
                     comando.Parameters.AddWithValue("@Id", item.Id);
                     comando.Parameters.AddWithValue("@Id_Banco", item.Id_Banco);
-                    comando.Parameters.AddWithValue("@Tipo", item.Tipo);
+                    comando.Parameters.AddWithValue("@Tipo", item.Tipo.ToSql());
                     comando.Parameters.AddWithValue("@Fecha", item.Fecha);
-                    comando.Parameters.AddWithValue("@Detalle", item.Detalle);
+                    comando.Parameters.AddWithValue("@Detalle", item.Detalle.ToSql());
                     comando.Parameters.AddWithValue("@Monto", item.Monto);
 
                     comando.ExecuteNonQuery();

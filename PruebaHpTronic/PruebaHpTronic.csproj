@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BancoBLL.cs" />
+    <Compile Include="BLL\Extensores.cs" />
     <Compile Include="BLL\TransaccionesBLL.cs" />
     <Compile Include="BLL\Utils.cs" />
     <Compile Include="Clases\Banco.cs" />
@@ -161,12 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Script\Script.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Utilidades-Albert\Utilidades-Albert.csproj">
-      <Project>{5d1d2e95-ac8b-41e0-8f56-a3c764b7becd}</Project>
-      <Name>Utilidades-Albert</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
